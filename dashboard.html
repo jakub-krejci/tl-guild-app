@@ -1,18 +1,3 @@
-<script>
-  // Získáme token z URL po přesměrování z Discord login
-  const urlParams = new URLSearchParams(window.location.search);
-  const token = urlParams.get('token');
-
-  if (token) {
-    // Uložíme token do localStorage, aby byl dostupný pro API volání
-    localStorage.setItem('jwt_token', token);
-
-    // Odstranit token z URL, aby URL byla čistá
-    window.history.replaceState({}, document.title, "/dashboard.html");
-  }
-</script>
-
-
 <!DOCTYPE html>
 <html lang="cs">
 <head>
@@ -37,7 +22,7 @@
       <h4 class="text-center">Guild Dashboard</h4>
       <a href="#"><i class="bi bi-people"></i> Hráči</a>
       <a href="#"><i class="bi bi-person-plus"></i> Přidat postavu</a>
-      <a href="#"><i class="bi bi-box-arrow-right"></i> Odhlásit</a>
+      <a href="#" id="logout"><i class="bi bi-box-arrow-right"></i> Odhlásit</a>
     </nav>
 
     <!-- Main content -->
