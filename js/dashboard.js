@@ -1,15 +1,14 @@
-import { supabase } from '../supabase.js';
+import { supabase } from './supabase.js'; // cesta k supabase.js
 
 document.addEventListener('DOMContentLoaded', () => {
 
-  // --- 1️⃣ JWT token ---
   const token = localStorage.getItem('jwt_token');
   if (!token) {
-    alert('Nejste přihlášen! Prosím přihlaste se přes Discord.');
+    alert('Nejste přihlášeni! Přihlaste se přes Discord.');
     window.location.href = '/index.html';
   }
 
-  // --- 2️⃣ Načtení hráčů ---
+  // --- Načtení hráčů ---
   async function loadPlayers() {
     try {
       const { data, error } = await supabase.from('users').select(`
@@ -46,10 +45,10 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   }
 
-  // --- 3️⃣ Vytvoření postavy přes AJAX ---
+  // --- Vytvoření postavy ---
   const form = document.getElementById('create-character-form');
   form.addEventListener('submit', async (e) => {
-    e.preventDefault(); // zastaví reload stránky
+    e.preventDefault();
 
     const name = document.getElementById('char-name').value;
     const charClass = document.getElementById('char-class').value;
@@ -78,12 +77,11 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   });
 
-  // --- 4️⃣ Odhlášení ---
+  // --- Odhlášení ---
   document.getElementById('logout').addEventListener('click', () => {
     localStorage.removeItem('jwt_token');
     window.location.href = '/index.html';
   });
 
-  // --- Inicialní načtení tabulky ---
   loadPlayers();
 });
