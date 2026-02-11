@@ -2,11 +2,28 @@
 <html lang="cs">
 <head>
   <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Guild Dashboard</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+  <style>
+    body {
+      background-color: #1e1e2f;
+      color: #f8f9fa;
+    }
+    .btn-discord {
+      background-color: #5865F2;
+      color: #fff;
+    }
+    .btn-discord:hover {
+      background-color: #4752c4;
+    }
+  </style>
 </head>
-<body>
-  <h1>Vítejte v TL Guild Dashboard</h1> 
-  <a href="https://tl-guild-backend.vercel.app/api/auth/discord">Přihlásit přes Discord</a>
+<body class="d-flex justify-content-center align-items-center vh-100">
+  <div class="text-center">
+    <h1 class="mb-4">Throne & Liberty Guild Dashboard</h1>
+    <p class="mb-4">Správa DKP a postav členů guildy</p>
+    <a href="https://tl-guild-backend.vercel.app/api/auth/discord" class="btn btn-discord btn-lg">Přihlásit přes Discord</a>
+  </div>
 </body>
 </html>
-<!-- Komentář -->
