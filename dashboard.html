@@ -11,3 +11,42 @@
     window.history.replaceState({}, document.title, "/dashboard.html");
   }
 </script>
+
+
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+  <meta charset="UTF-8">
+  <title>Guild Dashboard</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+  <script type="module" src="./supabase.js"></script>
+  <script type="module" src="./js/dashboard.js"></script>
+</head>
+<body>
+  <div class="container mt-5">
+    <h1>Guild Dashboard</h1>
+    <table id="players-table" class="table table-striped mt-3">
+      <thead>
+        <tr>
+          <th>Discord Username</th>
+          <th>Character Name</th>
+          <th>Class</th>
+          <th>Role</th>
+          <th>Level</th>
+          <th>DKP Total</th>
+        </tr>
+      </thead>
+      <tbody></tbody>
+    </table>
+
+    <h2 class="mt-5">Vytvořit postavu</h2>
+    <form id="create-character-form">
+      <input type="text" id="char-name" placeholder="Name" required>
+      <input type="text" id="char-class" placeholder="Class" required>
+      <input type="number" id="char-level" placeholder="Level" required>
+      <button type="submit">Vytvořit</button>
+    </form>
+  </div>
+</body>
+</html>
+
