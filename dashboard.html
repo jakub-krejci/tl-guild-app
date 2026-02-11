@@ -1,0 +1,13 @@
+<script>
+  // Získáme token z URL po přesměrování z Discord login
+  const urlParams = new URLSearchParams(window.location.search);
+  const token = urlParams.get('token');
+
+  if (token) {
+    // Uložíme token do localStorage, aby byl dostupný pro API volání
+    localStorage.setItem('jwt_token', token);
+
+    // Odstranit token z URL, aby URL byla čistá
+    window.history.replaceState({}, document.title, "/dashboard.html");
+  }
+</script>
