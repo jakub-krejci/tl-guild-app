@@ -1,6 +1,7 @@
 import { supabase } from '../supabase.js';
 
 document.addEventListener('DOMContentLoaded', () => {
+
   // --- 1️⃣ JWT token ---
   const token = localStorage.getItem('jwt_token');
   if (!token) {
@@ -14,7 +15,7 @@ document.addEventListener('DOMContentLoaded', () => {
       const { data, error } = await supabase.from('users').select(`
         id,
         username,
-        character:characters(name,class,role,level),
+        character:characters(name,class,guild_role,level),
         dkp:dkp(dkp_total)
       `);
 
@@ -26,12 +27,13 @@ document.addEventListener('DOMContentLoaded', () => {
       data.forEach(user => {
         const character = user.character[0] || {};
         const dkp = user.dkp[0]?.dkp_total || 0;
+
         const row = document.createElement('tr');
         row.innerHTML = `
           <td>${user.username}</td>
           <td>${character.name || '-'}</td>
           <td>${character.class || '-'}</td>
-          <td>${character.role || '-'}</td>
+          <td>${character.guild_role || '-'}</td>
           <td>${character.level || '-'}</td>
           <td>${dkp}</td>
         `;
